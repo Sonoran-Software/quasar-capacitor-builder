@@ -4,6 +4,6 @@ COPY licenses /opt/android/licenses
 ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update && apt install -y npm && apt install -y android-sdk && apt install -y openjdk-14-jre-headless
-RUN export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
-RUN export ANDROID_SDK_ROOT=/usr/lib/android-sdk/
+RUN echo export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64 >> ~/.profile
+RUN echo export ANDROID_SDK_ROOT=/usr/lib/android-sdk/ >> ~/.profile
 RUN npm install -g @vue/cli && npm install -g @quasar/cli
