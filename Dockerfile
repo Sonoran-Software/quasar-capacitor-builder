@@ -3,7 +3,7 @@ WORKDIR /app
 ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt update && apt install -y node npm && apt install -y android-sdk && apt install -y openjdk-14-jre-headless
+RUN apt update && apt install -y nodejs npm && apt install -y android-sdk && apt install -y openjdk-14-jre-headless
 ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 ENV ANDROID_SDK_ROOT=/usr/lib/android-sdk/
 COPY licenses /opt/android/licenses
