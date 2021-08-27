@@ -4,7 +4,7 @@ ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update && apt install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt update --yes && apt install -y nodejs && apt install -y android-sdk && apt install -y openjdk-14-jre-headless
+RUN apt update --yes && apt install -y nodejs && apt install -y android-sdk && apt install -y openjdk-14-jdk
 ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 ENV ANDROID_SDK_ROOT=/usr/lib/android-sdk/
 ENV ANDROID_HOME=/usr/lib/android-sdk/
