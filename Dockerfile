@@ -14,7 +14,7 @@ COPY licenses /usr/lib/android-sdk/licenses
 # Ruby and Bundler for Fastlane Support
 RUN apt update --yes && apt install -y ruby ruby-dev
 COPY Gemfile .
-RUN gem install bundler
+RUN gem install json && gem install bundler
 RUN bundle install
 
 RUN npm install -g @vue/cli && npm install -g @quasar/cli
