@@ -8,6 +8,7 @@ RUN apt update --yes && apt install -y nodejs && apt install -y openjdk-13-jdk &
 ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 ENV ANDROID_SDK_ROOT=/usr/lib/android-sdk/
 ENV ANDROID_HOME=/usr/lib/android-sdk/
+ENV BUNDLE_SILENCE_ROOT_WARNING=true
 COPY licenses /opt/android/licenses
 COPY licenses /usr/lib/android-sdk/licenses
 
