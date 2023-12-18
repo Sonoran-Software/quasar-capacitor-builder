@@ -19,9 +19,12 @@ COPY licenses /usr/lib/android-sdk/licenses
 RUN apt update --yes && apt install -y git dos2unix
 
 # Ruby and Bundler for Fastlane Support
-RUN apt update --yes && apt install -y ruby ruby-dev
+RUN apt update --yes && apt install -y zlib1g-dev libssl-dev libreadline-dev
+RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+ENV PATH="/root/.rbenv/bin:/root/.rbenv/shims:$PATH"
+RUN eval "$(rbenv init -)" && rbenv install 3.1.4 && rbenv global 3.1.4
 COPY Gemfile .
-RUN gem install json && gem install bundler
-RUN bundle install
+RUN eval "$(rbenv init -)" && gem install json && gem install bundler
+RUN eval "$(rbenv init -)" && bundle install
 
 RUN npm install -g @vue/cli && npm install -g @quasar/cli
